@@ -58,6 +58,7 @@ namespace MyWork1
 
         private void lstChannels_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.vlcControl1.Stop();
             string url = "http://limehd.online/playlist/";
             string request = GET(url);
             DeserializeJSON.Root ParseJSON = JsonConvert.DeserializeObject<DeserializeJSON.Root>(request);
@@ -76,8 +77,6 @@ namespace MyWork1
                     if (selected == name_ru)
                     {
                         int volume = 100;
-                        //string urlm3u8 = "http://livetv.mylifeisgood.ml/mfolive.m3u8?media=fox";
-                        //Player(urlm3u8, volume);
                         Player(urlch, volume);
                         return;
                     }
